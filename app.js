@@ -11,7 +11,7 @@ const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "
 toggle.addEventListener('click', (e) => {
     const html = document.querySelector('html')
 
-    if(html = document.querySelector('html')) {
+    if(html.classList.contains('dark')) {
         
         html.classList.remove('dark')
 
@@ -32,12 +32,12 @@ function setTime() {
     const day = time.getDay()
     const date = time.getDate()
     const hours = time.getHours()
-    const hoursForClock = hours >= 13 ? hours % 12 : hours
+    const hoursForClock = hours >= 13 ? hours % 12 : hours;
     const minutes = time.getMinutes()
     const seconds = time.getSeconds()
     const ampm = hours >= 12 ? 'PM' : 'AM'
 
-    hourEl.computedStyleMap.transform = `translate(-50%, -100%) rotate(${scale(hoursForClock, 0, 12, 0, 360)}deg)`
+    hourEl.style.transform = `translate(-50%, -100%) rotate(${scale(hoursForClock, 0, 12, 0, 360)}deg)`
     minuteEl.style.transform = `translate(-50%, -100%) rotate(${scale(minutes, 0, 60, 0, 360)}deg)`
     secondEl.style.transform = `translate(-50%, -100%) rotate(${scale(seconds, 0, 60, 0, 360)}deg)`
 
